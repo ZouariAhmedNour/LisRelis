@@ -27,6 +27,10 @@
                 <div class="text-center">
                     <a href="/forgot-password" class="text-decoration-none" style="color: #2C1B2E;">Mot de passe oublié ?</a>
                 </div>
+                <div class="text-center mt-2">
+    <span>Pas encore de compte ?</span>
+    <a href="inscription.php" class="text-decoration-underline" style="color: #2C1B2E;">S'inscrire</a>
+</div>
             </form>
         </div>
     </div>

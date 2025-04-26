@@ -1,0 +1,89 @@
+/* Styles spécifiques au header */
+.container.mt-5 {
+    padding: 0; /* Réduire le padding par défaut pour un alignement plus serré */
+}
+
+.d-flex {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo img {
+    height: 80px; /* Taille du logo */
+}
+
+nav {
+    margin-left: auto; /* Pousse la navigation à droite */
+}
+
+.nav-pills {
+    display: flex;
+    align-items: center;
+}
+
+.nav-pills .nav-link {
+    margin-right: 10px; /* Espacement entre les éléments du menu */
+    color: #822C5D; /* Couleur principale pour les liens */
+    background-color: transparent;
+    border: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.nav-pills .nav-link:hover {
+    color: #C16AA3; /* Couleur secondaire au survol */
+}
+
+.nav-pills .nav-link.active {
+    background-color: #822C5D; /* Couleur principale pour l'élément actif */
+    color: #F9F4F8; /* Texte clair */
+    border-radius: 5px;
+}
+
+.nav-pills .btn {
+    margin-left: 10px; /* Espacement entre les boutons */
+}
+
+#dark-mode-placeholder .btn {
+    margin-right: 10px; /* Espacement entre le bouton Mode Sombre et Se déconnecter */
+    background-color: #C16AA3; /* Couleur secondaire */
+    border-color: #C16AA3;
+    color: #F9F4F8;
+    font-weight: 500;
+}
+
+#dark-mode-placeholder .btn:hover {
+    background-color: #A1487B; /* Couleur plus foncée au survol */
+    border-color: #A1487B;
+}
+
+.nav-pills .btn-danger {
+    background-color: #A1487B; /* Ajustement pour correspondre au thème */
+    border-color: #A1487B;
+    font-weight: 500;
+}
+
+.nav-pills .btn-danger:hover {
+    background-color: #822C5D; /* Couleur principale au survol */
+    border-color: #822C5D;
+}
+
+.welcome-message p {
+    font-size: 1.1rem;
+    color: #822C5D; /* Couleur principale */
+    animation: slideIn 0.5s ease-in-out;
+    margin-top: 10px; /* Espacement sous le menu */
+}
+
+/* Animation pour le message de bienvenue */
+@keyframes slideIn {
+    from {
+        transform: translateX(-20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}

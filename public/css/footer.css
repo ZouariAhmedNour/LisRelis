@@ -1,0 +1,42 @@
+footer {
+    background-color: #2C1B2E; /* Couleur sombre du footer */
+    width: 100%;
+    padding-left: 0;
+    padding-right: 0;
+}
+
+footer .row {
+    max-width: 1140px; /* Correspond à la largeur max du conteneur Bootstrap pour le contenu */
+    margin: 0 auto; /* Centre le contenu à l'intérieur du footer */
+}
+
+footer p {
+    color: #F9F4F8; /* Texte clair */
+}
+
+.quote {
+    font-family: 'Dancing Script', cursive; /* Police stylée */
+    font-size: 1.2rem;
+    color: #C16AA3; /* Couleur secondaire */
+    animation: fadeIn 1s ease-in-out;
+}
+
+#current-time {
+    font-weight: bold;
+    color: #F9F4F8;
+}
+
+@media (max-width: 767px) {
+    footer .row {
+        text-align: center;
+    }
+    footer .col-md-4 {
+        margin-bottom: 1rem;
+    }
+}
+
+/* Animation pour la citation */
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}

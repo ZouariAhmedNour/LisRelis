@@ -8,7 +8,7 @@ function dbConnect() {
     }
 
     $host = 'localhost';
-    $dbname = 'lis&relis';
+    $dbname = 'lisrelis';
     $username = 'root';
     $password = '';
 

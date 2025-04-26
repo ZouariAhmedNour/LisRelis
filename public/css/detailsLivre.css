@@ -1,0 +1,58 @@
+/* Styles spécifiques à la page detailsLivre.php */
+body {
+    background-color: #F9F4F8; /* Couleur de fond par défaut */
+}
+
+h1 {
+    color: #822C5D; /* Couleur principale pour les titres */
+    margin-bottom: 1.5rem;
+}
+
+.card {
+    background-color: #FFFFFF; /* Fond blanc pour les cartes par défaut */
+    border: 1px solid #C16AA3; /* Bordure avec la couleur secondaire */
+    transition: background-color 0.3s ease; /* Transition fluide pour le mode sombre */
+}
+
+.card-title {
+    color: #2C1B2E; /* Couleur du texte par défaut */
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.card-text {
+    color: #2C1B2E; /* Couleur du texte par défaut */
+}
+
+.card-text strong {
+    color: #822C5D; /* Couleur principale pour les labels */
+}
+
+.btn-secondary {
+    background-color: #C16AA3; /* Couleur secondaire pour le bouton */
+    border-color: #C16AA3;
+    color: #F9F4F8;
+}
+
+.btn-secondary:hover {
+    background-color: #A1487B; /* Couleur plus foncée au survol */
+    border-color: #A1487B;
+}
+
+.btn-emprunter {
+    background-color: #C16AA3; /* Même couleur que btn-secondary */
+    border-color: #C16AA3;
+    color: #F9F4F8;
+}
+
+.btn-emprunter:hover {
+    background-color: #A1487B; /* Même couleur de survol que btn-secondary */
+    border-color: #A1487B;
+}
+
+.btn-emprunter:disabled {
+    background-color: #D9A8C2; /* Version atténuée de #C16AA3 pour l'état désactivé */
+    border-color: #D9A8C2;
+    color: #F9F4F8;
+    opacity: 0.7; /* Légère transparence pour indiquer qu'il est désactivé */
+}

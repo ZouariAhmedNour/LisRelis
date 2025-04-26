@@ -1,0 +1,59 @@
+/* Styles spécifiques à la page auteurs.php */
+body {
+    background-color: #F9F4F8; /* Couleur de fond par défaut */
+}
+
+h1 {
+    color: #822C5D; /* Couleur principale pour les titres */
+    margin-bottom: 1.5rem;
+}
+
+.btn-primary {
+    background-color: #822C5D; /* Couleur principale pour le bouton */
+    border-color: #822C5D;
+    color: #F9F4F8;
+}
+
+.btn-primary:hover {
+    background-color: #C16AA3; /* Couleur secondaire au survol */
+    border-color: #C16AA3;
+}
+
+.btn-warning {
+    background-color: #C16AA3; /* Couleur secondaire pour Modifier */
+    border-color: #C16AA3;
+    color: #F9F4F8;
+}
+
+.btn-warning:hover {
+    background-color: #A1487B;
+    border-color: #A1487B;
+}
+
+.btn-danger {
+    background-color: #A1487B; /* Couleur pour Supprimer */
+    border-color: #A1487B;
+}
+
+.btn-danger:hover {
+    background-color: #822C5D;
+    border-color: #822C5D;
+}
+
+.table {
+    background-color: #FFFFFF; /* Fond blanc pour la table */
+    border: 1px solid #C16AA3; /* Bordure avec la couleur secondaire */
+}
+
+.table th, .table td {
+    color: #2C1B2E; /* Couleur du texte par défaut */
+}
+
+.table th {
+    background-color: #F9E4EF; /* Fond rose clair pour les en-têtes */
+    color: #822C5D; /* Couleur principale pour le texte */
+}
+
+.form-control, .form-control:focus {
+    border-color: #C16AA3; /* Bordure avec la couleur secondaire */
+}

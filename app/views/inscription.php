@@ -31,7 +31,7 @@
                     <input type="password" class="form-control" id="mot_de_passe_confirm" name="mot_de_passe_confirm" required>
                 </div>
                 <button type="submit" class="btn btn-primary w-100 mb-3" id="inscrireBtn">S'inscrire</button>
-                <a href="/login" class="btn btn-secondary w-100" id="connecterBtn">Se connecter</a>
+                <a href="<?php echo BASE_URL; ?>login" class="btn btn-secondary w-100" id="connecterBtn">Se connecter</a>
             </form>
         </div>
     </div>
