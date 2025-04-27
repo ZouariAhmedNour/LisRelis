@@ -56,6 +56,12 @@ if ($relativePath === 'login') {
     require_once __DIR__ . '/../app/controllers/AuteursController.php';
     $controller = new AuteursController();
     $controller->add();
+} elseif ($relativePath === 'auteurs/edit') {
+    require_once __DIR__ . '/../app/controllers/AuteursController.php';
+    $controller = new AuteursController();
+    $controller->edit();
+
+    
 } elseif ($relativePath === 'livres') {
     require_once __DIR__ . '/../app/controllers/LivreController.php';
     $controller = new LivreController();

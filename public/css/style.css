@@ -1,35 +1,74 @@
 body {
     background-color: #F9F4F8; /* Fond clair */
     transition: background-color 0.3s ease;
+    display: flex; /* Assurer que flex est bien appliqué */
+    flex-direction: column;
+    min-height: 100vh; /* Assurer que le body prend toute la hauteur */
 }
 
+/* Mode sombre pour le body */
+body.dark-mode {
+    background-color: #2C1B2E !important; /* Fond sombre avec priorité */
+    border: 5px solid red; /* Ajouté temporairement pour tester */
+}
+
+/* Assurer que main prend l'espace restant */
+main {
+    flex-grow: 1; /* Prend tout l'espace disponible */
+    display: flex;
+    flex-direction: column;
+}
+
+/* Assurer que le footer reste en bas */
+footer {
+    flex-shrink: 0; /* Empêche le footer de se rétrécir */
+}
+
+/* Titres */
 h1 {
     color: #2C1B2E; /* Texte principal */
     animation: fadeIn 1s ease-in-out;
+    font-size: 2.5rem; /* Taille plus grande pour les titres */
+    margin-bottom: 2rem; /* Plus d'espace sous les titres */
 }
 
-.logo {
-    transition: transform 0.3s ease;
+body.dark-mode h1 {
+    color: #F9F4F8; /* Texte clair en mode sombre */
 }
 
-.logo:hover {
-    transform: scale(1.1);
+h2 {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    color: #2C1B2E;
 }
 
-.form-control {
-    transition: all 0.3s ease;
+body.dark-mode h2 {
+    color: #F9F4F8;
 }
 
-.form-control:focus {
-    border-color: #822C5D; /* Couleur principale */
-    box-shadow: 0 0 0 0.2rem rgba(130, 44, 93, 0.25); /* Couleur principale with opacity */
-    transform: translateY(-2px);
+/* Texte général */
+p, .card-text {
+    font-size: 1.2rem; /* Taille de police plus grande pour le texte */
+    line-height: 1.8; /* Espacement entre les lignes pour une meilleure lisibilité */
+    color: #2C1B2E; /* Texte principal */
 }
 
+body.dark-mode p,
+body.dark-mode .card-text {
+    color: #F9F4F8; /* Texte clair en mode sombre */
+}
+
+/* Boutons */
 .btn-primary {
     background-color: #822C5D; /* Couleur principale */
     border-color: #822C5D;
+    color: #F9F4F8; /* Texte clair pour une meilleure lisibilité */
     transition: all 0.3s ease;
+}
+
+body.dark-mode .Boson Sombre {
+    background-color: #A65482; /* Couleur plus claire en mode sombre */
+    border-color: #A65482;
 }
 
 .btn-primary:hover {
@@ -39,6 +78,11 @@ h1 {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
+body.dark-mode .btn-primary:hover {
+    background-color: #C16AA3; /* Couleur encore plus claire au survol en mode sombre */
+    border-color: #C16AA3;
+}
+
 .btn-secondary {
     background-color: #C16AA3; /* Bouton secondaire */
     border-color: #C16AA3;
@@ -46,30 +90,62 @@ h1 {
     transition: all 0.3s ease;
 }
 
-.btn-secondary:hover {
-    background-color: #A65482; /* Couleur secondaire */
+body.dark-mode .btn-secondary {
+    background-color: #A65482; /* Couleur plus sombre en mode sombre */
     border-color: #A65482;
-    transform: translateY(-2px);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    color: #F9F4F8; /* Texte clair pour une meilleure lisibilité */
 }
 
-.alert-info, .alert-danger {
-    background-color: #F4DCEB; /* Accent pastel */
-    color: #2C1B2E; /* Texte principal */
-    border-color: #A65482; /* Couleur secondaire */
-    animation: slideIn 0.5s ease-in-out;
+body.dark-mode .btn-secondary:hover {
+    background-color: #C16AA3; /* Couleur plus claire au survol en mode sombre */
+    border-color: #C16AA3;
 }
 
-.form-label {
-    color: #2C1B2E; /* Texte principal */
+/* S'assurer que le bouton Mode Sombre est visible */
+#dark-mode-placeholder .btn-secondary {
+    display: inline-block;
+    margin-left: 10px;
 }
 
+/* Navigation */
+.nav-link {
+    color: #2C1B2E;
+}
+
+body.dark-mode .nav-link {
+    color: #F9F4F8;
+}
+
+.nav-link.active {
+    background-color: #822C5D;
+    color: #F9F4F8;
+}
+
+body.dark-mode .nav-link.active {
+    background-color: #A65482;
+}
+
+/* Header */
+header {
+    background-color: #F9F4F8;
+}
+
+body.dark-mode header {
+    background-color: #3A2B3E;
+}
+
+/* Footer */
+footer {
+    background-color: #2C1B2E;
+    color: #F9F4F8;
+}
+
+body.dark-mode footer {
+    background-color: #1A0F1C;
+}
+
+/* Animation pour la transition */
 @keyframes fadeIn {
     from { opacity: 0; }
     to { opacity: 1; }
-}
-
-@keyframes slideIn {
-    from { transform: translateY(-20px); opacity: 0; }
-    to { transform: translateY(0); opacity: 1; }
 }

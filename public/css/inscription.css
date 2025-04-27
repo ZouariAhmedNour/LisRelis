@@ -1,0 +1,73 @@
+.container-fluid {
+    padding-left: 0;
+    padding-right: 15px;
+    position: relative;
+}
+
+.logo {
+    position: fixed; /* CHANGÉ de absolute à fixed */
+    top: 20px; /* Petit décalage du haut */
+    left: 20px; /* Petit décalage à gauche */
+    z-index: 1000; /* Toujours au-dessus */
+}
+
+.login-content {
+    max-width: 500px; /* Limite la largeur */
+    margin: 100px auto 0 auto; /* Centre horizontalement et espace en haut */
+    padding: 30px;
+    background: #fefefe; /* Optionnel : un fond blanc si tu veux */
+    border-radius: 8px; /* Optionnel : arrondir les coins */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Optionnel : petite ombre */
+}
+
+.login-content h1 {
+    font-size: 2rem;
+    font-weight: 700;
+    text-align: center;
+}
+
+
+.form-group {
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+.login-label {
+    font-size: 1rem; /* Taille des labels */
+    font-weight: 500;
+    width: 150px; /* Largeur fixe pour les labels afin d'aligner les inputs */
+    flex-shrink: 0; /* Empêche le label de rétrécir */
+}
+
+.login-input {
+    height: 40px; /* Hauteur des champs */
+    font-size: 1rem; /* Taille de la police */
+    padding: 10px;
+    flex-grow: 1; /* L'input prend tout l'espace restant */
+}
+
+.login-btn {
+    height: 40px; /* Hauteur du bouton */
+    font-size: 1rem; /* Taille de la police */
+    background-color: #A65482;
+    border-color: #A65482;
+}
+
+.login-btn:hover {
+    background-color: #8E466E;
+    border-color: #8E466E;
+}
+
+.login-link {
+    font-size: 1rem; /* Taille des liens */
+    transition: color 0.3s ease;
+}
+
+.login-link:hover {
+    color: #A65482;
+}
+
+.login-text {
+    font-size: 1rem; /* Taille du texte */
+}

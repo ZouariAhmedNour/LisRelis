@@ -31,9 +31,17 @@ $currentPage = isset($currentPage) ? $currentPage : '';
     <?php if ($currentPage === 'detailsLivre'): ?>
         <link rel="stylesheet" href="<?php echo BASE_URL; ?>css/detailsLivre.css">
     <?php endif; ?>
+    <?php if ($currentPage === 'login'): ?>
+        <link rel="stylesheet" href="<?php echo BASE_URL; ?>css/login.css">
+    <?php endif; ?>
+    <?php if ($currentPage === 'inscription'): ?>
+        <link rel="stylesheet" href="<?php echo BASE_URL; ?>css/inscription.css">
+    <?php endif; ?>
 </head>
 <body class="d-flex flex-column min-vh-100">
-    <?php include __DIR__ . '/header.php'; ?>
+<?php if ($currentPage !== 'login' && $currentPage !== 'inscription'): ?>
+        <?php include __DIR__ . '/header.php'; ?>
+    <?php endif; ?>
     
     <main class="flex-grow-1">
         <div class="container-fluid">
@@ -64,8 +72,8 @@ $currentPage = isset($currentPage) ? $currentPage : '';
         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <?php endif; ?>
 
-    <?php if ($currentPage === 'detailsLivre'): ?>
-        <link rel="stylesheet" href="<?php echo BASE_URL; ?>css/detailsLivre.css">
+    <?php if ($currentPage === 'login'): ?>
+        <script src="<?php echo BASE_URL; ?>js/login.js"></script>
     <?php endif; ?>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"></script>

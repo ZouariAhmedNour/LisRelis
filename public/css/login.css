@@ -1,0 +1,53 @@
+/* Styles globaux pour la page de connexion */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background-color: #f7f1f5; /* Même couleur que inscription */
+    overflow-x: hidden; /* Évite le scroll horizontal */
+}
+
+.container-fluid {
+    padding: 0;
+    margin: 0;
+}
+
+.logo img {
+    height: 80px;
+}
+
+.login-content {
+    padding: 0;
+}
+
+.form-label {
+    font-size: 1rem;
+    font-weight: 500;
+    color: #2C1B2E;
+}
+
+.form-control {
+    height: 50px;
+    font-size: 1rem;
+    padding: 10px;
+}
+
+.btn {
+    height: 50px;
+    font-size: 1.2rem;
+    background-color: #A65482;
+    border: none;
+}
+
+.btn:hover {
+    background-color: #8E466E;
+}
+
+.text-center a {
+    font-size: 1rem;
+    transition: color 0.3s ease;
+}
+
+.text-center a:hover {
+    color: #A65482;
+}

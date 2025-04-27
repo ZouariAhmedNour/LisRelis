@@ -1,19 +1,27 @@
 document.addEventListener('DOMContentLoaded', () => {
+    console.log("global.js chargé avec succès");
+
     const darkModePlaceholder = document.getElementById('dark-mode-placeholder');
     
     if (darkModePlaceholder) {
+        console.log("Élément dark-mode-placeholder trouvé");
         const toggleDarkModeBtn = document.createElement('button');
         toggleDarkModeBtn.textContent = 'Mode Sombre';
         toggleDarkModeBtn.className = 'btn btn-secondary';
         darkModePlaceholder.appendChild(toggleDarkModeBtn);
+        console.log("Bouton Mode Sombre ajouté");
 
         // Vérifier si le mode sombre est déjà activé (par exemple, en utilisant localStorage)
         let isDarkMode = localStorage.getItem('darkMode') === 'true';
+        console.log("Mode sombre initial (de localStorage) :", isDarkMode);
 
         // Appliquer le mode sombre au chargement de la page
         if (isDarkMode) {
             document.body.classList.add('dark-mode');
             toggleDarkModeBtn.textContent = 'Mode Clair';
+            // Forcer l'application des styles via JS
+            applyDarkModeStyles(true);
+            console.log("Mode sombre appliqué au chargement");
         }
 
         toggleDarkModeBtn.addEventListener('click', () => {
@@ -22,7 +30,59 @@ document.addEventListener('DOMContentLoaded', () => {
             toggleDarkModeBtn.textContent = isDarkMode ? 'Mode Clair' : 'Mode Sombre';
             // Sauvegarder le choix de l'utilisateur dans localStorage
             localStorage.setItem('darkMode', isDarkMode);
+            // Forcer l'application des styles via JS
+            applyDarkModeStyles(isDarkMode);
+            console.log("Mode sombre basculé :", isDarkMode);
         });
+    } else {
+        console.warn("Élément dark-mode-placeholder non trouvé dans le DOM");
+    }
+
+    // Fonction pour forcer l'application des styles du mode sombre
+    function applyDarkModeStyles(isDarkMode) {
+        if (isDarkMode) {
+            document.body.style.backgroundColor = '#2C1B2E';
+            document.body.style.color = '#F9F4F8';
+            document.querySelectorAll('h1, h2, p, .card-text').forEach(el => {
+                el.style.color = '#F9F4F8';
+            });
+            document.querySelectorAll('.btn-primary').forEach(btn => {
+                btn.style.backgroundColor = '#A65482';
+                btn.style.borderColor = '#A65482';
+            });
+            document.querySelectorAll('.btn-secondary').forEach(btn => {
+                btn.style.backgroundColor = '#A65482';
+                btn.style.borderColor = '#A65482';
+                btn.style.color = '#F9F4F8';
+            });
+            if (document.querySelector('header')) {
+                document.querySelector('header').style.backgroundColor = '#3A2B3E';
+            }
+            if (document.querySelector('footer')) {
+                document.querySelector('footer').style.backgroundColor = '#1A0F1C';
+            }
+        } else {
+            document.body.style.backgroundColor = '#F9F4F8';
+            document.body.style.color = '#2C1B2E';
+            document.querySelectorAll('h1, h2, p, .card-text').forEach(el => {
+                el.style.color = '#2C1B2E';
+            });
+            document.querySelectorAll('.btn-primary').forEach(btn => {
+                btn.style.backgroundColor = '#822C5D';
+                btn.style.borderColor = '#822C5D';
+            });
+            document.querySelectorAll('.btn-secondary').forEach(btn => {
+                btn.style.backgroundColor = '#C16AA3';
+                btn.style.borderColor = '#C16AA3';
+                btn.style.color = '#2C1B2E';
+            });
+            if (document.querySelector('header')) {
+                document.querySelector('header').style.backgroundColor = '#F9F4F8';
+            }
+            if (document.querySelector('footer')) {
+                document.querySelector('footer').style.backgroundColor = '#2C1B2E';
+            }
+        }
     }
 
     // Recherche en temps réel (spécifique à la page d'accueil)

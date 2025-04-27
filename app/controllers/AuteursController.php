@@ -51,6 +51,7 @@ class AuteursController {
 
             if (empty($errors)) {
                 $this->auteurModel->create($nom, $biographie, $date_de_naissance);
+                $_SESSION['success'] = "Auteur ajouté avec succès.";
                 header('Location: ' . BASE_URL . 'auteurs');
                 exit();
             } else {
@@ -66,7 +67,7 @@ class AuteursController {
         }
     }
 
-    public function edit($id) {
+    public function edit() {
         // Vérifier si l'utilisateur est connecté
         if (!isset($_SESSION['user_id'])) {
             header('Location: ' . BASE_URL . 'login');
@@ -74,6 +75,14 @@ class AuteursController {
         }
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            // Récupérer l'ID à partir de $_POST
+            $id = isset($_POST['id']) ? (int)$_POST['id'] : null;
+            if (!$id) {
+                $_SESSION['errors'] = ["ID de l'auteur manquant."];
+                header('Location: ' . BASE_URL . 'auteurs');
+                exit();
+            }
+
             $nom = trim($_POST['nom'] ?? '');
             $biographie = trim($_POST['biographie'] ?? '');
             $date_de_naissance = trim($_POST['date_de_naissance'] ?? '');
@@ -93,6 +102,7 @@ class AuteursController {
 
             if (empty($errors)) {
                 $this->auteurModel->update($id, $nom, $biographie, $date_de_naissance);
+                $_SESSION['success'] = "Auteur modifié avec succès.";
                 header('Location: ' . BASE_URL . 'auteurs');
                 exit();
             } else {
@@ -118,6 +128,7 @@ class AuteursController {
         // Tenter de supprimer l'auteur
         if ($this->auteurModel->delete($id)) {
             // Suppression réussie
+            $_SESSION['success'] = "Auteur supprimé avec succès.";
             header('Location: ' . BASE_URL . 'auteurs');
         } else {
             // Suppression échouée : probablement l'auteur par défaut
