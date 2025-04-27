@@ -1,5 +1,4 @@
 <?php
-
 require_once __DIR__ . '/../models/Genre.php';
 
 class GenreController {
@@ -10,9 +9,21 @@ class GenreController {
     }
 
     public function index() {
+        // Débogage : Vérifier le contenu de la session
+        error_log("GenreController::index - Contenu de la session : " . print_r($_SESSION, true));
+
         // Vérifier si l'utilisateur est connecté
-        if (!isset($_SESSION['user_id'])) {
+        if (!isset($_SESSION['user'])) {
+            error_log("GenreController::index - Utilisateur non connecté, redirection vers login");
             header('Location: ' . BASE_URL . 'login');
+            exit();
+        }
+
+        // Vérifier si l'utilisateur est un admin (role = 0)
+        if ($_SESSION['user']['role'] != 0) {
+            error_log("GenreController::index - Utilisateur non admin, redirection vers accueil");
+            $_SESSION['error_message'] = "Accès refusé : Vous n'avez pas les permissions nécessaires pour accéder à cette page.";
+            header('Location: ' . BASE_URL . 'accueil');
             exit();
         }
 
@@ -24,9 +35,21 @@ class GenreController {
     }
 
     public function add() {
+        // Débogage : Vérifier le contenu de la session
+        error_log("GenreController::add - Contenu de la session : " . print_r($_SESSION, true));
+
         // Vérifier si l'utilisateur est connecté
-        if (!isset($_SESSION['user_id'])) {
+        if (!isset($_SESSION['user'])) {
+            error_log("GenreController::add - Utilisateur non connecté, redirection vers login");
             header('Location: ' . BASE_URL . 'login');
+            exit();
+        }
+
+        // Vérifier si l'utilisateur est un admin (role = 0)
+        if ($_SESSION['user']['role'] != 0) {
+            error_log("GenreController::add - Utilisateur non admin, redirection vers accueil");
+            $_SESSION['error_message'] = "Accès refusé : Vous n'avez pas les permissions nécessaires pour accéder à cette page.";
+            header('Location: ' . BASE_URL . 'accueil');
             exit();
         }
 
@@ -62,9 +85,21 @@ class GenreController {
     }
 
     public function edit($id) {
+        // Débogage : Vérifier le contenu de la session
+        error_log("GenreController::edit - Contenu de la session : " . print_r($_SESSION, true));
+
         // Vérifier si l'utilisateur est connecté
-        if (!isset($_SESSION['user_id'])) {
+        if (!isset($_SESSION['user'])) {
+            error_log("GenreController::edit - Utilisateur non connecté, redirection vers login");
             header('Location: ' . BASE_URL . 'login');
+            exit();
+        }
+
+        // Vérifier si l'utilisateur est un admin (role = 0)
+        if ($_SESSION['user']['role'] != 0) {
+            error_log("GenreController::edit - Utilisateur non admin, redirection vers accueil");
+            $_SESSION['error_message'] = "Accès refusé : Vous n'avez pas les permissions nécessaires pour accéder à cette page.";
+            header('Location: ' . BASE_URL . 'accueil');
             exit();
         }
 
@@ -100,9 +135,21 @@ class GenreController {
     }
 
     public function delete($id) {
+        // Débogage : Vérifier le contenu de la session
+        error_log("GenreController::delete - Contenu de la session : " . print_r($_SESSION, true));
+
         // Vérifier si l'utilisateur est connecté
-        if (!isset($_SESSION['user_id'])) {
+        if (!isset($_SESSION['user'])) {
+            error_log("GenreController::delete - Utilisateur non connecté, redirection vers login");
             header('Location: ' . BASE_URL . 'login');
+            exit();
+        }
+
+        // Vérifier si l'utilisateur est un admin (role = 0)
+        if ($_SESSION['user']['role'] != 0) {
+            error_log("GenreController::delete - Utilisateur non admin, redirection vers accueil");
+            $_SESSION['error_message'] = "Accès refusé : Vous n'avez pas les permissions nécessaires pour accéder à cette page.";
+            header('Location: ' . BASE_URL . 'accueil');
             exit();
         }
 

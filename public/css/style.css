@@ -30,6 +30,7 @@ h1 {
     animation: fadeIn 1s ease-in-out;
     font-size: 2.5rem; /* Taille plus grande pour les titres */
     margin-bottom: 2rem; /* Plus d'espace sous les titres */
+    
 }
 
 body.dark-mode h1 {

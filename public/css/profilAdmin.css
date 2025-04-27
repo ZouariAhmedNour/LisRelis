@@ -1,0 +1,39 @@
+.container-fluid {
+    padding: 20px;
+}
+
+h1, h2 {
+    font-family: 'Dancing Script', cursive;
+    color: #A65482;
+}
+
+.table {
+    background-color: #fefefe;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.input-group {
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.btn-warning {
+    background-color: #f0ad4e;
+    border-color: #f0ad4e;
+}
+
+.btn-warning:hover {
+    background-color: #ec971f;
+    border-color: #d58512;
+}
+
+.btn-info {
+    background-color: #5bc0de;
+    border-color: #46b8da;
+}
+
+.btn-info:hover {
+    background-color: #31b0d5;
+    border-color: #269abc;
+}

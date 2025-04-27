@@ -1,0 +1,46 @@
+.container-fluid {
+    padding: 20px;
+}
+
+h1 {
+    font-family: 'Dancing Script', cursive;
+    color: #A65482;
+}
+
+.table {
+    background-color: #fefefe;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.text-success {
+    font-size: 1.2rem;
+}
+
+.text-warning {
+    font-size: 1.2rem;
+}
+
+.text-danger {
+    font-size: 1.2rem;
+}
+
+.btn-success {
+    background-color: #28a745;
+    border-color: #28a745;
+}
+
+.btn-success:hover {
+    background-color: #218838;
+    border-color: #1e7e34;
+}
+
+.btn-secondary {
+    background-color: #6c757d;
+    border-color: #6c757d;
+}
+
+.btn-secondary:hover {
+    background-color: #5a6268;
+    border-color: #545b62;
+}

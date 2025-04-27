@@ -37,9 +37,24 @@ $currentPage = isset($currentPage) ? $currentPage : '';
     <?php if ($currentPage === 'inscription'): ?>
         <link rel="stylesheet" href="<?php echo BASE_URL; ?>css/inscription.css">
     <?php endif; ?>
+    <?php if ($currentPage === 'inscriptionAdmin'): ?>
+        <link rel="stylesheet" href="<?php echo BASE_URL; ?>css/inscriptionAdmin.css">
+    <?php endif; ?>
+    <?php if ($currentPage === 'profilAdmin'): ?>
+        <link rel="stylesheet" href="<?php echo BASE_URL; ?>css/profilAdmin.css">
+    <?php endif; ?>
+    <?php if ($currentPage === 'userDetails'): ?>
+        <link rel="stylesheet" href="<?php echo BASE_URL; ?>css/userDetails.css">
+    <?php endif; ?>
+    <?php if ($currentPage === 'profil'): ?>
+        <link rel="stylesheet" href="<?php echo BASE_URL; ?>css/profil.css">
+    <?php endif; ?>
+    <?php if ($currentPage === 'historique'): ?>
+        <link rel="stylesheet" href="<?php echo BASE_URL; ?>css/historique.css">
+    <?php endif; ?>
 </head>
 <body class="d-flex flex-column min-vh-100">
-<?php if ($currentPage !== 'login' && $currentPage !== 'inscription'): ?>
+<?php if ($currentPage !== 'login' && $currentPage !== 'inscription' && $currentPage !== 'inscriptionAdmin'): ?>
         <?php include __DIR__ . '/header.php'; ?>
     <?php endif; ?>
     
@@ -75,6 +90,11 @@ $currentPage = isset($currentPage) ? $currentPage : '';
     <?php if ($currentPage === 'login'): ?>
         <script src="<?php echo BASE_URL; ?>js/login.js"></script>
     <?php endif; ?>
+    <?php if ($currentPage === 'profilAdmin'): ?>
+        <script src="<?php echo BASE_URL; ?>js/profilAdmin.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <?php endif; ?>
+
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"></script>
 </body>

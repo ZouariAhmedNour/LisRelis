@@ -1,5 +1,4 @@
 <?php 
-
 require_once __DIR__ . '/../models/Utilisateur.php';
 
 class LoginController {
@@ -24,13 +23,16 @@ class LoginController {
                 // Vérifier les identifiants
                 $user = $this->utilisateur->login($email, $password);
                 if ($user) {
-                    $_SESSION['user_id'] = $user['id'];
-                    $_SESSION['user_nom'] = $user['nom']; // On garde le nom pour l'affichage
+                    // Stocker les informations de l'utilisateur dans la session
+                    $_SESSION['user'] = [
+                        'id' => $user['id'],
+                        'nom' => $user['nom'],
+                        'email' => $user['email'],
+                        'telephone' => $user['telephone'],
+                        'role' => $user['role']
+                    ];
                     header('Location: ' . BASE_URL . 'accueil');
                     exit;
-                    // Redirection éventuelle
-                    // header('Location: /dashboard');
-                    // exit;
                 } else {
                     $message = 'Email ou mot de passe incorrect.';
                 }

@@ -1,0 +1,108 @@
+.container-fluid {
+    padding-left: 0;
+    padding-right: 0;
+    position: relative;
+}
+
+.logo img {
+    width: 60px; /* Taille du logo réduite */
+    height: auto;
+}
+
+.logo {
+    position: absolute;
+    top: 30px;
+    left: 30px;
+}
+
+.login-content {
+    max-width: 500px;
+    margin: 180px auto 0 auto;
+    padding: 40px 30px;
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+.login-content h1 {
+    padding-left: 80px; /* Espace pour laisser la place au logo */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+
+.login-label {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: #2C1B2E;
+}
+
+.login-input {
+    height: 45px;
+    font-size: 1rem;
+    padding: 10px 15px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    transition: border-color 0.3s;
+}
+
+.login-input:focus {
+    border-color: #A65482;
+    outline: none;
+}
+
+.login-btn {
+    height: 45px;
+    font-size: 1rem;
+    font-weight: 600;
+    background-color: #A65482;
+    border: none;
+    border-radius: 6px;
+    transition: background-color 0.3s, transform 0.2s;
+    margin-top: 10px;
+}
+
+.login-btn:hover {
+    background-color: #8E466E;
+    transform: translateY(-2px);
+}
+
+.btn-secondary.login-btn {
+    background-color: #C16AA3;
+    color: white;
+}
+
+.btn-secondary.login-btn:hover {
+    background-color: #a34e82;
+}
+
+.alert {
+    margin-bottom: 20px;
+    padding: 10px 20px;
+    font-size: 0.95rem;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsive pour petits écrans */
+@media (max-width: 576px) {
+    .login-content {
+        margin-top: 120px;
+        padding: 30px 20px;
+    }
+    .login-content h1 {
+        font-size: 1.8rem;
+    }
+}

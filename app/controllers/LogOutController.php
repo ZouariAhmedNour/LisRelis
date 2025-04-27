@@ -1,11 +1,19 @@
 <?php
 class LogoutController {
     public function index() {
-        session_start();
-        session_unset();  // Supprime toutes les variables de session
-        session_destroy(); // Détruit la session
-
-        header('Location: ' . BASE_URL . 'login'); // Redirige vers login
+        // Démarrer la session si ce n'est pas déjà fait
+        if (session_status() === PHP_SESSION_NONE) {
+            session_start();
+        }
+        
+        // Vider toutes les variables de session
+        $_SESSION = [];
+        
+        // Détruire la session
+        session_destroy();
+        
+        // Rediriger vers la page de login
+        header('Location: ' . BASE_URL . 'login');
         exit;
     }
 }

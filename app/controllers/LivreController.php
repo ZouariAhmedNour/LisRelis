@@ -1,5 +1,4 @@
 <?php
-
 require_once __DIR__ . '/../models/Livre.php';
 require_once __DIR__ . '/../models/Auteur.php';
 require_once __DIR__ . '/../models/Genre.php';
@@ -16,9 +15,21 @@ class LivreController {
     }
 
     public function index() {
+        // Débogage : Vérifier le contenu de la session
+        error_log("LivreController::index - Contenu de la session : " . print_r($_SESSION, true));
+
         // Vérifier si l'utilisateur est connecté
-        if (!isset($_SESSION['user_id'])) {
+        if (!isset($_SESSION['user'])) {
+            error_log("LivreController::index - Utilisateur non connecté, redirection vers login");
             header('Location: ' . BASE_URL . 'login');
+            exit();
+        }
+
+        // Vérifier si l'utilisateur est un admin (role = 0)
+        if ($_SESSION['user']['role'] != 0) {
+            error_log("LivreController::index - Utilisateur non admin, redirection vers accueil");
+            $_SESSION['error_message'] = "Accès refusé : Vous n'avez pas les permissions nécessaires pour accéder à cette page.";
+            header('Location: ' . BASE_URL . 'accueil');
             exit();
         }
 
@@ -53,9 +64,21 @@ class LivreController {
     }
 
     public function add() {
+        // Débogage : Vérifier le contenu de la session
+        error_log("LivreController::add - Contenu de la session : " . print_r($_SESSION, true));
+
         // Vérifier si l'utilisateur est connecté
-        if (!isset($_SESSION['user_id'])) {
+        if (!isset($_SESSION['user'])) {
+            error_log("LivreController::add - Utilisateur non connecté, redirection vers login");
             header('Location: ' . BASE_URL . 'login');
+            exit();
+        }
+
+        // Vérifier si l'utilisateur est un admin (role = 0)
+        if ($_SESSION['user']['role'] != 0) {
+            error_log("LivreController::add - Utilisateur non admin, redirection vers accueil");
+            $_SESSION['error_message'] = "Accès refusé : Vous n'avez pas les permissions nécessaires pour accéder à cette page.";
+            header('Location: ' . BASE_URL . 'accueil');
             exit();
         }
 
@@ -120,9 +143,21 @@ class LivreController {
     }
 
     public function edit($id) {
+        // Débogage : Vérifier le contenu de la session
+        error_log("LivreController::edit - Contenu de la session : " . print_r($_SESSION, true));
+
         // Vérifier si l'utilisateur est connecté
-        if (!isset($_SESSION['user_id'])) {
+        if (!isset($_SESSION['user'])) {
+            error_log("LivreController::edit - Utilisateur non connecté, redirection vers login");
             header('Location: ' . BASE_URL . 'login');
+            exit();
+        }
+
+        // Vérifier si l'utilisateur est un admin (role = 0)
+        if ($_SESSION['user']['role'] != 0) {
+            error_log("LivreController::edit - Utilisateur non admin, redirection vers accueil");
+            $_SESSION['error_message'] = "Accès refusé : Vous n'avez pas les permissions nécessaires pour accéder à cette page.";
+            header('Location: ' . BASE_URL . 'accueil');
             exit();
         }
 
@@ -185,9 +220,21 @@ class LivreController {
     }
 
     public function delete($id) {
+        // Débogage : Vérifier le contenu de la session
+        error_log("LivreController::delete - Contenu de la session : " . print_r($_SESSION, true));
+
         // Vérifier si l'utilisateur est connecté
-        if (!isset($_SESSION['user_id'])) {
+        if (!isset($_SESSION['user'])) {
+            error_log("LivreController::delete - Utilisateur non connecté, redirection vers login");
             header('Location: ' . BASE_URL . 'login');
+            exit();
+        }
+
+        // Vérifier si l'utilisateur est un admin (role = 0)
+        if ($_SESSION['user']['role'] != 0) {
+            error_log("LivreController::delete - Utilisateur non admin, redirection vers accueil");
+            $_SESSION['error_message'] = "Accès refusé : Vous n'avez pas les permissions nécessaires pour accéder à cette page.";
+            header('Location: ' . BASE_URL . 'accueil');
             exit();
         }
 

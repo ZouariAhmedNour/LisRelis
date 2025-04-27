@@ -1,0 +1,24 @@
+.container-fluid {
+    padding: 20px;
+}
+
+h1, h2 {
+    font-family: 'Dancing Script', cursive;
+    color: #A65482;
+}
+
+.table {
+    background-color: #fefefe;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.btn-primary {
+    background-color: #A65482;
+    border-color: #A65482;
+}
+
+.btn-primary:hover {
+    background-color: #8E466E;
+    border-color: #8E466E;
+}

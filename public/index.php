@@ -60,8 +60,6 @@ if ($relativePath === 'login') {
     require_once __DIR__ . '/../app/controllers/AuteursController.php';
     $controller = new AuteursController();
     $controller->edit();
-
-    
 } elseif ($relativePath === 'livres') {
     require_once __DIR__ . '/../app/controllers/LivreController.php';
     $controller = new LivreController();
@@ -90,6 +88,26 @@ if ($relativePath === 'login') {
     require_once __DIR__ . '/../app/controllers/GenresController.php';
     $controller = new GenreController();
     $controller->add();
+} elseif ($relativePath === 'inscriptionAdmin') {
+    require_once __DIR__ . '/../app/controllers/InscriptionAdminController.php';
+    $controller = new InscriptionAdminController();
+    $controller->index();
+} elseif ($relativePath === 'profilAdmin') {
+    require_once __DIR__ . '/../app/controllers/ProfilAdminController.php';
+    $controller = new ProfilAdminController();
+    $controller->index();
+} elseif (preg_match('/^userDetails\/(\d+)$/', $relativePath, $matches)) {
+    require_once __DIR__ . '/../app/controllers/UserDetailsController.php';
+    $controller = new UserDetailsController();
+    $controller->index($matches[1]);
+} elseif ($relativePath === 'profil') {
+    require_once __DIR__ . '/../app/controllers/ProfilController.php';
+    $controller = new ProfilController();
+    $controller->index();
+} elseif ($relativePath === 'historique') {
+    require_once __DIR__ . '/../app/controllers/HistoriqueController.php';
+    $controller = new HistoriqueController();
+    $controller->index();
 } else {
     require_once __DIR__ . '/../app/controllers/InscriptionController.php';
     $controller = new InscriptionController();
