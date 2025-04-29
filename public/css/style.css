@@ -9,7 +9,7 @@ body {
 /* Mode sombre pour le body */
 body.dark-mode {
     background-color: #2C1B2E !important; /* Fond sombre avec priorité */
-    border: 5px solid red; /* Ajouté temporairement pour tester */
+    /* border: 5px solid red; Ajouté temporairement pour tester */
 }
 
 /* Assurer que main prend l'espace restant */

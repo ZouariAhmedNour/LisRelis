@@ -1,39 +1,98 @@
-.container-fluid {
-    padding: 20px;
+/* Styles spécifiques à la page profilAdmin.php */
+body {
+    background-color: #F9F4F8; /* Couleur de fond par défaut */
 }
 
-h1, h2 {
-    font-family: 'Dancing Script', cursive;
-    color: #A65482;
+h1 {
+    color: #822C5D !important; /* Couleur principale pour les titres */
+    margin-bottom: 1.5rem !important;
 }
 
-.table {
-    background-color: #fefefe;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+h2 {
+    color: #822C5D !important; /* Couleur principale pour les sous-titres */
+    margin-bottom: 1.5rem !important;
 }
 
-.input-group {
-    max-width: 500px;
-    margin: 0 auto;
+.btn-primary {
+    background-color: #822C5D !important; /* Couleur principale pour le bouton */
+    border-color: #822C5D !important;
+    color: #F9F4F8 !important;
+}
+
+.btn-primary:hover {
+    background-color: #C16AA3 !important; /* Couleur secondaire au survol */
+    border-color: #C16AA3 !important;
 }
 
 .btn-warning {
-    background-color: #f0ad4e;
-    border-color: #f0ad4e;
+    background-color: #C16AA3 !important; /* Couleur secondaire pour "Envoyer une Alerte" */
+    border-color: #C16AA3 !important;
+    color: #F9F4F8 !important;
 }
 
 .btn-warning:hover {
-    background-color: #ec971f;
-    border-color: #d58512;
+    background-color: #A1487B !important;
+    border-color: #A1487B !important;
 }
 
 .btn-info {
-    background-color: #5bc0de;
-    border-color: #46b8da;
+    background-color: #C16AA3 !important; /* Couleur secondaire pour "Voir Détails" */
+    border-color: #C16AA3 !important;
+    color: #F9F4F8 !important;
 }
 
 .btn-info:hover {
-    background-color: #31b0d5;
-    border-color: #269abc;
+    background-color: #A1487B !important;
+    border-color: #A1487B !important;
+}
+
+.table {
+    background-color: #FFFFFF !important; /* Fond blanc pour la table */
+    border: 1px solid #C16AA3 !important; /* Bordure avec la couleur secondaire */
+}
+
+.table th, .table td {
+    color: #2C1B2E !important; /* Couleur du texte par défaut */
+}
+
+.table th {
+    background-color: #F9E4EF !important; /* Fond rose clair pour les en-têtes */
+    color: #822C5D !important; /* Couleur principale pour le texte */
+}
+
+.form-control, .form-control:focus {
+    border-color: #C16AA3 !important; /* Bordure avec la couleur secondaire */
+}
+
+/* Styles personnalisés pour SweetAlert2 */
+.swal2-custom-popup {
+    background-color: #F9F4F8 !important; /* Fond clair */
+    border: 1px solid #A65482 !important; /* Bordure couleur secondaire */
+    color: #2C1B2E !important; /* Texte principal */
+    border-radius: 10px !important; /* Coins arrondis pour le pop-up */
+}
+
+.swal2-custom-title {
+    color: #822C5D !important; /* Couleur principale */
+    font-size: 1.5rem !important; /* Taille du titre */
+}
+
+.swal2-custom-content {
+    color: #2C1B2E !important; /* Texte principal */
+    font-size: 1rem !important; /* Taille du texte */
+}
+
+.swal2-icon.swal2-warning {
+    border-color: #A65482 !important; /* Couleur secondaire */
+    color: #A65482 !important;
+}
+
+/* Ajuster les boutons de SweetAlert2 pour un meilleur espacement */
+.swal2-actions {
+    margin-top: 1.5rem !important;
+}
+
+.swal2-confirm.btn-primary, .swal2-cancel.btn-secondary {
+    padding: 0.5rem 1.5rem !important; /* Espacement interne des boutons */
+    font-size: 1rem !important; /* Taille du texte des boutons */
 }

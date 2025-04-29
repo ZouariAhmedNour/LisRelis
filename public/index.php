@@ -12,8 +12,12 @@ $scriptDir = str_replace('\\', '/', dirname($_SERVER['SCRIPT_NAME']));
 $baseUrl = rtrim($protocol . '://' . $host . $scriptDir, '/') . '/';
 define('BASE_URL', $baseUrl);
 
+// Define the layouts path
+define('LAYOUTS_PATH', realpath(__DIR__ . '/../app/views/layouts') . '/');
+
 // Debug: Log the BASE_URL and request URI
 error_log('BASE_URL: ' . BASE_URL);
+error_log('LAYOUTS_PATH: ' . LAYOUTS_PATH);
 $requestUri = rtrim($_SERVER['REQUEST_URI'], '/');
 error_log('Request URI: ' . $requestUri);
 
@@ -24,7 +28,11 @@ $relativePath = ltrim(substr($path, strlen($basePath)), '/'); // Remove base pat
 error_log('Relative Path: ' . $relativePath);
 
 // Routing
-if ($relativePath === 'login') {
+if ($relativePath === '') { // Route par défaut pour la page d'accueil principale
+    require_once __DIR__ . '/../app/controllers/LandingController.php';
+    $controller = new LandingController();
+    $controller->index();
+} elseif ($relativePath === 'login') {
     require_once __DIR__ . '/../app/controllers/LoginController.php';
     $controller = new LoginController();
     $controller->index();
@@ -96,10 +104,22 @@ if ($relativePath === 'login') {
     require_once __DIR__ . '/../app/controllers/ProfilAdminController.php';
     $controller = new ProfilAdminController();
     $controller->index();
-} elseif (preg_match('/^userDetails\/(\d+)$/', $relativePath, $matches)) {
-    require_once __DIR__ . '/../app/controllers/UserDetailsController.php';
-    $controller = new UserDetailsController();
-    $controller->index($matches[1]);
+} elseif ($relativePath === 'profilAdmin/sendAlert') {
+    require_once __DIR__ . '/../app/controllers/ProfilAdminController.php';
+    $controller = new ProfilAdminController();
+    $controller->sendAlert();
+} elseif (preg_match('/^profilAdmin\/userDetails\/(\d+)$/', $relativePath, $matches)) {
+    require_once __DIR__ . '/../app/controllers/ProfilAdminController.php';
+    $controller = new ProfilAdminController();
+    $controller->userDetails($matches[1]);
+} elseif (preg_match('/^profilAdmin\/returnBook\/(\d+)\/(\d+)$/', $relativePath, $matches)) {
+    require_once __DIR__ . '/../app/controllers/ProfilAdminController.php';
+    $controller = new ProfilAdminController();
+    $controller->returnBook($matches[1], $matches[2]);
+} elseif (preg_match('/^editUser\/(\d+)$/', $relativePath, $matches)) {
+    require_once __DIR__ . '/../app/controllers/ProfilAdminController.php';
+    $controller = new ProfilAdminController();
+    $controller->editUser($matches[1]);
 } elseif ($relativePath === 'profil') {
     require_once __DIR__ . '/../app/controllers/ProfilController.php';
     $controller = new ProfilController();
@@ -108,8 +128,14 @@ if ($relativePath === 'login') {
     require_once __DIR__ . '/../app/controllers/HistoriqueController.php';
     $controller = new HistoriqueController();
     $controller->index();
-} else {
+} elseif ($relativePath === 'inscription') {
     require_once __DIR__ . '/../app/controllers/InscriptionController.php';
     $controller = new InscriptionController();
     $controller->index();
+} else {
+    // Redirection vers la page d'accueil principale si la route n'est pas reconnue
+    require_once __DIR__ . '/../app/controllers/LandingController.php';
+    $controller = new LandingController();
+    $controller->index();
 }
+?>

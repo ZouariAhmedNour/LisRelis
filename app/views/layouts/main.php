@@ -46,55 +46,56 @@ $currentPage = isset($currentPage) ? $currentPage : '';
     <?php if ($currentPage === 'userDetails'): ?>
         <link rel="stylesheet" href="<?php echo BASE_URL; ?>css/userDetails.css">
     <?php endif; ?>
-    <?php if ($currentPage === 'profil'): ?>
-        <link rel="stylesheet" href="<?php echo BASE_URL; ?>css/profil.css">
-    <?php endif; ?>
     <?php if ($currentPage === 'historique'): ?>
         <link rel="stylesheet" href="<?php echo BASE_URL; ?>css/historique.css">
     <?php endif; ?>
+    <?php if ($currentPage === 'landing'): ?>
+        <link rel="stylesheet" href="<?php echo BASE_URL; ?>css/landing.css">
+    <?php endif; ?>
 </head>
-<body class="d-flex flex-column min-vh-100">
-<?php if ($currentPage !== 'login' && $currentPage !== 'inscription' && $currentPage !== 'inscriptionAdmin'): ?>
+<body class="<?php echo $currentPage === 'landing' ? 'landing-page' : 'd-flex flex-column min-vh-100'; ?>">
+    <?php if ($currentPage !== 'login' && $currentPage !== 'inscription' && $currentPage !== 'inscriptionAdmin' && $currentPage !== 'landing'): ?>
         <?php include __DIR__ . '/header.php'; ?>
     <?php endif; ?>
     
-    <main class="flex-grow-1">
+    <main class="<?php echo $currentPage !== 'landing' ? 'flex-grow-1' : ''; ?>">
         <div class="container-fluid">
             <?php echo $content; ?>
         </div>
     </main>
 
-    <?php include __DIR__ . '/footer.php'; ?>
+    <?php if ($currentPage !== 'landing'): ?>
+        <?php include __DIR__ . '/footer.php'; ?>
+    <?php endif; ?>
     
     <!-- JS personnalisé -->
     <script src="<?php echo BASE_URL; ?>js/global.js"></script>
 
     <?php if ($currentPage === 'livres'): ?>
         <script src="<?php echo BASE_URL; ?>js/livres.js"></script>
-        <!-- Inclure SweetAlert2 -->
         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <?php endif; ?>
     
     <?php if ($currentPage === 'auteurs'): ?>
         <script src="<?php echo BASE_URL; ?>js/auteurs.js"></script>
-        <!-- Inclure SweetAlert2 -->
         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <?php endif; ?>
 
     <?php if ($currentPage === 'genres'): ?>
         <script src="<?php echo BASE_URL; ?>js/genres.js"></script>
-        <!-- Inclure SweetAlert2 -->
         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <?php endif; ?>
 
     <?php if ($currentPage === 'login'): ?>
         <script src="<?php echo BASE_URL; ?>js/login.js"></script>
     <?php endif; ?>
+    <?php if ($currentPage === 'landing'): ?>
+        <script src="<?php echo BASE_URL; ?>js/landing.js"></script>
+    <?php endif; ?>
     <?php if ($currentPage === 'profilAdmin'): ?>
         <script src="<?php echo BASE_URL; ?>js/profilAdmin.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <?php endif; ?>
-
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"></script>
 </body>

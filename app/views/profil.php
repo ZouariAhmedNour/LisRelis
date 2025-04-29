@@ -6,31 +6,56 @@ $currentPage = 'profil';
 ob_start();
 ?>
 
-<div class="container-fluid">
-    <h1 class="text-center mb-4">Mon Profil</h1>
+<div class="container mt-5">
+    <h1>Mon Profil</h1>
+
+    <!-- Afficher les messages d'erreur s'il y en a -->
+    <?php if (isset($_SESSION['errors'])): ?>
+        <div class="alert alert-danger">
+            <?php foreach ($_SESSION['errors'] as $error): ?>
+                <p><?php echo htmlspecialchars($error); ?></p>
+            <?php endforeach; ?>
+            <?php unset($_SESSION['errors']); ?>
+        </div>
+    <?php endif; ?>
+
+    <!-- Bouton pour modifier le profil -->
+    <div class="mb-4">
+        <a href="<?php echo BASE_URL; ?>editProfil" class="btn btn-primary">Modifier Profil</a>
+    </div>
 
     <!-- Section : Informations personnelles -->
     <section class="mb-5">
         <h2>Mes Informations</h2>
-        <table class="table table-bordered">
-            <tr>
-                <th>Nom</th>
-                <td><?php echo htmlspecialchars($user['nom']); ?></td>
-            </tr>
-            <tr>
-                <th>Email</th>
-                <td><?php echo htmlspecialchars($user['email']); ?></td>
-            </tr>
-            <tr>
-                <th>Téléphone</th>
-                <td><?php echo htmlspecialchars($user['telephone']); ?></td>
-            </tr>
-            <tr>
-                <th>Rôle</th>
-                <td><?php echo $user['role'] == 0 ? 'Admin' : 'Utilisateur'; ?></td>
-            </tr>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Champ</th>
+                    <th>Valeur</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Nom</td>
+                    <td><?php echo htmlspecialchars($user['nom']); ?></td>
+                </tr>
+                <tr>
+                    <td>Email</td>
+                    <td><?php echo htmlspecialchars($user['email']); ?></td>
+                </tr>
+                <tr>
+                    <td>Téléphone</td>
+                    <td><?php echo htmlspecialchars($user['telephone']); ?></td>
+                </tr>
+                <tr>
+                    <td>Rôle</td>
+                    <td><?php echo $user['role'] == 0 ? 'Admin' : 'Utilisateur'; ?></td>
+                </tr>
+            </tbody>
         </table>
-        <a href="<?php echo BASE_URL; ?>historique" class="btn btn-primary">Mon Historique</a>
+        <div class="mb-4">
+            <a href="<?php echo BASE_URL; ?>historique" class="btn btn-primary">Voir Mon Historique</a>
+        </div>
     </section>
 </div>
 

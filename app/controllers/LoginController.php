@@ -31,13 +31,24 @@ class LoginController {
                         'telephone' => $user['telephone'],
                         'role' => $user['role']
                     ];
-                    header('Location: ' . BASE_URL . 'accueil');
+                    $_SESSION['user_id'] = $user['id']; // Ajout de user_id pour detailsLivre.php
+                    error_log("Connexion réussie : user_id=" . $_SESSION['user_id']);
+                    error_log("Session après connexion : " . print_r($_SESSION, true));
+
+                    // Rediriger selon le rôle
+                    if ($user['role'] == 0) { // Admin
+                        header('Location: ' . BASE_URL . 'profilAdmin');
+                    } else { // Utilisateur standard
+                        header('Location: ' . BASE_URL . 'accueil');
+                    }
                     exit;
                 } else {
                     $message = 'Email ou mot de passe incorrect.';
+                    error_log("Échec de la connexion pour email=$email");
                 }
             }
         }
         require_once __DIR__ . '/../views/login.php';
     }
 }
+?>

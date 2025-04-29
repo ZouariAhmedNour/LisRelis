@@ -1,0 +1,101 @@
+/* Styles pour la page d'accueil principale */
+body.landing-page {
+    background-image: url('../assets/images/library-background.png');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    transition: background-color 0.3s ease;
+}
+
+/* Mode sombre pour la page d'accueil */
+body.dark-mode.landing-page {
+    background-color: #2C1B2E !important;
+}
+
+/* Conteneur principal de la page d'accueil */
+.landing-container {
+    text-align: center;
+    background: rgba(255, 255, 255, 0.85);
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    animation: fadeIn 1s ease-in-out;
+}
+
+/* Titre "Lis & Relis" */
+.landing-container h1 {
+    font-family: 'Dancing Script', cursive;
+    font-size: 4rem;
+    color: #2C1B2E;
+    margin-bottom: 20px;
+}
+
+body.dark-mode .landing-container h1 {
+    color: #F9F4F8;
+}
+
+/* Logo */
+.landing-container .logo {
+    width: 150px;
+    margin-bottom: 20px;
+}
+
+/* Boutons */
+.landing-container .btn {
+    font-size: 1.2rem;
+    padding: 10px 30px;
+    margin: 10px;
+    border-radius: 25px;
+    transition: all 0.3s ease;
+}
+
+.landing-container .btn-primary {
+    background-color: #822C5D;
+    border-color: #822C5D;
+    color: #F9F4F8;
+}
+
+body.dark-mode .landing-container .btn-primary {
+    background-color: #A65482;
+    border-color: #A65482;
+}
+
+.landing-container .btn-primary:hover {
+    background-color: #A65482;
+    border-color: #A65482;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+body.dark-mode .landing-container .btn-primary:hover {
+    background-color: #C16AA3;
+    border-color: #C16AA3;
+}
+
+.landing-container .btn-success {
+    background-color: #C16AA3;
+    border-color: #C16AA3;
+    color: #2C1B2E;
+}
+
+body.dark-mode .landing-container .btn-success {
+    background-color: #A65482;
+    border-color: #A65482;
+    color: #F9F4F8;
+}
+
+body.dark-mode .landing-container .btn-success:hover {
+    background-color: #C16AA3;
+    border-color: #C16AA3;
+}
+
+/* Animation fadeIn */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}

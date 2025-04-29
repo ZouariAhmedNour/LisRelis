@@ -1,5 +1,4 @@
 <?php
-
 require_once __DIR__ . '/../models/Livre.php';
 
 class AccueilController {
@@ -12,15 +11,14 @@ class AccueilController {
     public function index() {
         $searchQuery = isset($_GET['search']) ? trim($_GET['search']) : '';
         
-        // Toujours charger les livres populaires
-        $livresPopulaires = $this->livreModel->findAll();
+        // Charger les 5 livres les plus empruntés pour la section "Livres Populaires"
+        $livresPopulaires = $this->livreModel->findMostBorrowed(5);
 
         // Convertir les images BLOB en base64 pour les livres populaires
         foreach ($livresPopulaires as &$livre) {
             if (!empty($livre['image'])) {
                 $livre['image'] = 'data:image/jpeg;base64,' . base64_encode($livre['image']);
             } else {
-                // Si aucune image, utiliser une image par défaut (optionnel)
                 $livre['image'] = BASE_URL . 'assets/images/default-book.jpg';
             }
         }
@@ -53,3 +51,4 @@ class AccueilController {
         require_once __DIR__ . '/../views/accueil.php';
     }
 }
+?>

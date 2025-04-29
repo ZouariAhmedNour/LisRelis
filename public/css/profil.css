@@ -1,24 +1,39 @@
-.container-fluid {
-    padding: 20px;
+/* Styles spécifiques à la page profil.php */
+body {
+    background-color: #F9F4F8; /* Couleur de fond par défaut */
 }
 
-h1, h2 {
-    font-family: 'Dancing Script', cursive;
-    color: #A65482;
+h1 {
+    color: #822C5D !important; /* Couleur principale pour les titres */
+    margin-bottom: 1.5rem !important;
 }
 
-.table {
-    background-color: #fefefe;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+h2 {
+    color: #822C5D !important; /* Couleur principale pour les sous-titres */
+    margin-bottom: 1.5rem !important;
 }
 
 .btn-primary {
-    background-color: #A65482;
-    border-color: #A65482;
+    background-color: #822C5D !important; /* Couleur principale pour "Modifier Profil" et "Voir Mon Historique" */
+    border-color: #822C5D !important;
+    color: #F9F4F8 !important;
 }
 
 .btn-primary:hover {
-    background-color: #8E466E;
-    border-color: #8E466E;
+    background-color: #C16AA3 !important; /* Couleur secondaire au survol */
+    border-color: #C16AA3 !important;
+}
+
+.table {
+    background-color: #FFFFFF !important; /* Fond blanc pour la table */
+    border: 1px solid #C16AA3 !important; /* Bordure avec la couleur secondaire */
+}
+
+.table th, .table td {
+    color: #2C1B2E !important; /* Couleur du texte par défaut */
+}
+
+.table th {
+    background-color: #F9E4EF !important; /* Fond rose clair pour les en-têtes */
+    color: #822C5D !important; /* Couleur principale pour le texte */
 }
