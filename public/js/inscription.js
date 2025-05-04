@@ -12,25 +12,44 @@ document.addEventListener('DOMContentLoaded', function() {
 
         const password = document.getElementById('password').value;
         const confirmPassword = document.getElementById('mot_de_passe_confirm').value;
-        
-        if (password !== confirmPassword) {
-            console.log('Passwords do not match.');
+        const telephone = document.getElementById('telephone').value;
+
+        // Supprimer les anciennes alertes
+        const existingAlert = form.parentNode.querySelector('.alert-danger');
+        if (existingAlert) {
+            existingAlert.remove();
+        }
+
+        let hasError = false;
+
+        if (password.length < 6) {
+            console.log('Mot de passe trop court.');
+            showError('Le mot de passe doit contenir au moins 6 caractères.');
+            hasError = true;
+        } else if (password !== confirmPassword) {
+            console.log('Les mots de passe ne correspondent pas.');
+            showError('Les mots de passe ne correspondent pas.');
+            hasError = true;
+        }
+
+        if (!/^\d{8}$/.test(telephone)) {
+            console.log('Numéro de téléphone invalide.');
+            showError('Le numéro de téléphone doit contenir exactement 8 chiffres.');
+            hasError = true;
+        }
+
+        if (hasError) {
             event.preventDefault();
+        } else {
+            console.log('Validation réussie, envoi du formulaire.');
+        }
 
-            // Remove any existing alerts
-            const existingAlert = form.parentNode.querySelector('.alert-danger');
-            if (existingAlert) {
-                existingAlert.remove();
-            }
-
-            // Create and display new alert
+        function showError(message) {
             const alertDiv = document.createElement('div');
             alertDiv.className = 'alert alert-danger text-center';
-            alertDiv.textContent = 'Les mots de passe ne correspondent pas.';
+            alertDiv.textContent = message;
             form.parentNode.insertBefore(alertDiv, form);
-            setTimeout(() => alertDiv.remove(), 3000);
-        } else {
-            console.log('Passwords match, proceeding with submission.');
+            setTimeout(() => alertDiv.remove(), 4000);
         }
     });
 

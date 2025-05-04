@@ -1,4 +1,8 @@
 <?php
+// Configurer les paramètres de session avant session_start()
+ini_set('session.cookie_path', '/lis-relis/public/'); // Ajustez selon votre sous-répertoire
+ini_set('session.gc_maxlifetime', 3600); // Durée de vie de la session : 1 heure
+ini_set('session.cookie_lifetime', 3600);
 session_start();
 
 ini_set('display_errors', 1);
@@ -15,8 +19,9 @@ define('BASE_URL', $baseUrl);
 // Define the layouts path
 define('LAYOUTS_PATH', realpath(__DIR__ . '/../app/views/layouts') . '/');
 
-// Debug: Log the BASE_URL and request URI
+// Debug: Log the BASE_URL, session ID, and request URI
 error_log('BASE_URL: ' . BASE_URL);
+error_log('Session ID: ' . session_id());
 error_log('LAYOUTS_PATH: ' . LAYOUTS_PATH);
 $requestUri = rtrim($_SERVER['REQUEST_URI'], '/');
 error_log('Request URI: ' . $requestUri);
@@ -116,7 +121,7 @@ if ($relativePath === '') { // Route par défaut pour la page d'accueil principa
     require_once __DIR__ . '/../app/controllers/ProfilAdminController.php';
     $controller = new ProfilAdminController();
     $controller->returnBook($matches[1], $matches[2]);
-} elseif (preg_match('/^editUser\/(\d+)$/', $relativePath, $matches)) {
+} elseif (preg_match('/^profilAdmin\/editUser\/(\d+)$/', $relativePath, $matches)) {
     require_once __DIR__ . '/../app/controllers/ProfilAdminController.php';
     $controller = new ProfilAdminController();
     $controller->editUser($matches[1]);
@@ -124,6 +129,14 @@ if ($relativePath === '') { // Route par défaut pour la page d'accueil principa
     require_once __DIR__ . '/../app/controllers/ProfilController.php';
     $controller = new ProfilController();
     $controller->index();
+} elseif ($relativePath === 'editProfil') {
+    require_once __DIR__ . '/../app/controllers/ProfilController.php';
+    $controller = new ProfilController();
+    $controller->edit();
+} elseif ($relativePath === 'profilController/edit') {
+    require_once __DIR__ . '/../app/controllers/ProfilController.php';
+    $controller = new ProfilController();
+    $controller->edit();
 } elseif ($relativePath === 'historique') {
     require_once __DIR__ . '/../app/controllers/HistoriqueController.php';
     $controller = new HistoriqueController();

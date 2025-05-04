@@ -9,13 +9,18 @@ ob_start();
 <div class="container mt-5">
     <h1>Mon Profil</h1>
 
-    <!-- Afficher les messages d'erreur s'il y en a -->
+    <!-- Afficher les messages d'erreur ou de succès -->
     <?php if (isset($_SESSION['errors'])): ?>
         <div class="alert alert-danger">
             <?php foreach ($_SESSION['errors'] as $error): ?>
                 <p><?php echo htmlspecialchars($error); ?></p>
             <?php endforeach; ?>
             <?php unset($_SESSION['errors']); ?>
+        </div>
+    <?php endif; ?>
+    <?php if (!empty($message)): ?>
+        <div class="alert alert-success">
+            <?php echo htmlspecialchars($message); ?>
         </div>
     <?php endif; ?>
 
@@ -45,7 +50,7 @@ ob_start();
                 </tr>
                 <tr>
                     <td>Téléphone</td>
-                    <td><?php echo htmlspecialchars($user['telephone']); ?></td>
+                    <td><?php echo htmlspecialchars($user['telephone'] ?? 'Non défini'); ?></td>
                 </tr>
                 <tr>
                     <td>Rôle</td>

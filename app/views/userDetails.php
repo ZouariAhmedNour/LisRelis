@@ -27,7 +27,8 @@ ob_start();
 
     <!-- Bouton pour modifier l'utilisateur -->
     <div class="mb-4">
-        <a href="<?php echo BASE_URL; ?>editUser/<?php echo htmlspecialchars($user['id']); ?>" class="btn btn-primary">Modifier Utilisateur</a>
+    <a href="<?php echo BASE_URL; ?>profilAdmin/editUser/<?php echo htmlspecialchars($user['id']); ?>" class="btn btn-primary">Modifier Utilisateur</a>
+
         <a href="<?php echo BASE_URL; ?>profilAdmin" class="btn btn-secondary">Retour</a>
     </div>
 

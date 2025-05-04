@@ -150,3 +150,13 @@ body.dark-mode footer {
     from { opacity: 0; }
     to { opacity: 1; }
 }
+
+body.dark-mode .card {
+    background-color: #3A2B3E; /* Fond sombre des cartes */
+    border-color: #4B2D4A;
+}
+
+body.dark-mode .card .card-title,
+body.dark-mode .card .card-text {
+    color: #F9F4F8 !important; /* Texte clair forcé */
+}
