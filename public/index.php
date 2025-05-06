@@ -101,6 +101,10 @@ if ($relativePath === '') { // Route par défaut pour la page d'accueil principa
     require_once __DIR__ . '/../app/controllers/GenresController.php';
     $controller = new GenreController();
     $controller->add();
+} elseif (preg_match('/^genres\/edit\/(\d+)$/', $relativePath, $matches)) {
+    require_once __DIR__ . '/../app/controllers/GenresController.php';
+    $controller = new GenreController();
+    $controller->edit($matches[1]);
 } elseif ($relativePath === 'inscriptionAdmin') {
     require_once __DIR__ . '/../app/controllers/InscriptionAdminController.php';
     $controller = new InscriptionAdminController();
